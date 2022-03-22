@@ -89,6 +89,6 @@ app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, './test.html'))
 })
 
-app.listen(process.env.port || "8080", () => {
+app.listen(process.env.PORT || "8080", () => {
   console.log("server is running");
 });
