@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path")
 const cors = require("cors");
 const app = express();
 app.use(cors());
@@ -84,6 +85,10 @@ app.get("/v1/dogs", (req, res) => {
   res.status(200).json(dogs);
 });
 
-app.listen("8080", () => {
+app.get("/home", (req, res) => {
+  res.sendFile(path.join(__dirname, './test.html'))
+})
+
+app.listen(process.env.port || "8080", () => {
   console.log("server is running");
 });
