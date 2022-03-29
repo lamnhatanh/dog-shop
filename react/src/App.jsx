@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     async function getData() {
-      const res = await axios.get("http://localhost:8080/v1/dogs");
+      const res = await axios.get("/v1/dogs");
       return res;
     }
     getData()
@@ -28,7 +28,7 @@ function App() {
   }, []);
 
   return (
-    <CartContext.Provider value={{myCart, addToCart, total, setTotal}}>
+    <CartContext.Provider value={{ myCart, addToCart, total, setTotal }}>
       <Router>
         <NavBar />
         <div className="page-container">
