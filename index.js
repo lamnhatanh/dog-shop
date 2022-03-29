@@ -81,12 +81,18 @@ const dogs = [
   },
 ];
 
+app.use(express.static("./react/build"))
+
 app.get("/v1/dogs", (req, res) => {
   res.status(200).json(dogs);
 });
 
 app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, './test.html'))
+})
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, './react/build/index.html'))
 })
 
 app.listen(process.env.PORT || "8080", () => {
